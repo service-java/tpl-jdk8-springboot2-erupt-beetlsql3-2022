@@ -15,15 +15,3 @@ spring:
 erupt:
   uploadPath: /opt/erupt/pictures
 
-magic-api:
-  resource:
-    readonly: true
-  secret-key: 123456
-  push-path: /_magic-api-sync
-  security:
-    username: admin
-    password: 123456
-  backup:
-    enable: true
-    max-history: -1
-    table-name: magic_api_backup
