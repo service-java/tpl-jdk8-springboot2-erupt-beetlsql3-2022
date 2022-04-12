@@ -3,6 +3,8 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.vo.ResponseVo;
+
 import org.beetl.sql.core.page.DefaultPageRequest;
 import org.beetl.sql.core.page.PageRequest;
 import org.beetl.sql.core.page.PageResult;
@@ -35,8 +37,9 @@ public class UserController {
     @ResponseBody
     // @EruptRecordOperate("登录可调用")
     @EruptRouter(verifyType = EruptRouter.VerifyType.LOGIN, authIndex = 0)
-    public PageResult<User> pageUser(Integer pageNumber, Integer pageSize) {
-        return userMapper.pageUser(DefaultPageRequest.of(pageNumber, pageSize));
+    public ResponseVo pageUser(Integer pageNumber, Integer pageSize) {
+        PageResult<User> page = userMapper.pageUser(DefaultPageRequest.of(pageNumber, pageSize));
+        return ResponseVo.ok(page);
     }
 
 }
