@@ -51,7 +51,7 @@
         async mounted() {
             const res = await pageUser({
                 pageSize: 10,
-                pageNum: 1
+                pageNumber: 1
             })
             this.$message.success(JSON.stringify(res.data))
             // console.log(res)
