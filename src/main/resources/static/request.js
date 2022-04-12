@@ -14,7 +14,7 @@ request.interceptors.request.use(
     },
     error => {
         // console.log(error) // for debug
-        this.$message.error(error)
+        ELEMENT.Message.error(error)
         return Promise.reject(error)
     }
 )
@@ -41,7 +41,7 @@ request.interceptors.response.use(
             //     type: 'error',
             //     duration: 5 * 1000
             // })
-            this.$message({
+            ELEMENT.Message({
                 message: res.msg || res.message || 'Error',
                 type: 'error',
                 duration: 5 * 1000
@@ -75,7 +75,7 @@ request.interceptors.response.use(
         //     type: 'error',
         //     duration: 5 * 1000
         // })
-        this.$message({
+        ELEMENT.Message({
             message: error.message,
             type: 'error',
             duration: 5 * 1000
