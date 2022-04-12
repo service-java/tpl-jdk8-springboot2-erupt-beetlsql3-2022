@@ -36,7 +36,7 @@ public class ${className}Controller {
     // @EruptRecordOperate("登录可调用")
     @EruptRouter(verifyType = EruptRouter.VerifyType.LOGIN, authIndex = 0)
     public PageResult<${className}> page${className}(Integer pageNumber, Integer pageSize) {
-        return ${lowerFirst(className)}Mapper.page${className}Cols(DefaultPageRequest.of(pageNumber, pageSize), ${className}._cols);
+        return ${lowerFirst(className)}Mapper.page${className}(DefaultPageRequest.of(pageNumber, pageSize));
     }
 
 }

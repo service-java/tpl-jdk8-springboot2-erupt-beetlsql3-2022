@@ -8,9 +8,11 @@ id,name,age,create_time,update_time
 pageUser
 ===
 ```sql
-select #{use("cols")}
+select
+-- @pageTag(){
+   #{use("cols")}
+-- @}
 from user
-where  #{use("condition")}
 ```
 
 
@@ -29,7 +31,7 @@ jsonMap
 listAllTables
 ===
 
-```
+```sql
 SELECT table_name 
 FROM INFORMATION_SCHEMA.TABLES
 WHERE table_schema = 'sku' 

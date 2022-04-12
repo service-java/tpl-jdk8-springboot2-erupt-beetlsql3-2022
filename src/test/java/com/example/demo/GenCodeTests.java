@@ -46,14 +46,14 @@ class GenCodeTests {
         // 指定要生成的内容
         GenOption genOption = new GenOption();
         genOption.setNeedEntity(true)
-                .setNeedMapperAndController(false)
-                .setNeedMenuSQL(false)
-                .setNeedDBDoc(false);
+                .setNeedMapperAndController(true)
+                .setNeedMenuSQL(true)
+                .setNeedDBDoc(true);
 
         if (tableNames.size() > 0) {
             tableNames.stream().forEach(tableName -> {
                 // 指定要生成代码的表名
-                if (StrUtil.startWith(tableName, "temp_")) {
+                if (StrUtil.startWith(tableName, "user")) {
                     // 生成代码与文档
                     GenCodeUtil.genCode(sqlManager, basePackageName, tableName, genOption);
                 }
