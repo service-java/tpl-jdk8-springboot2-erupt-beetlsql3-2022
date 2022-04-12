@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>home</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+        }
+
+        ol, ul, li {
+            list-style: none;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #222;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #333;
+            width: 37.5rem;
+            letter-spacing: 0.3rem;
+            position: relative;
+            text-align: center;
+        }
+
+        h1::after {
+            /* attr(attribute_name) */
+            content: attr(data-spotlight);
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: pink;
+            clip-path: ellipse(100px 100px at 0% 50%);
+            animation: move 5s infinite;
+            text-align: center;
+        }
+
+        @keyframes move {
+            0% {
+                clip-path: ellipse(100px 100px at 0% 50%);
+            }
+            50% {
+                clip-path: ellipse(100px 100px at 100% 50%);
+            }
+            100% {
+                clip-path: ellipse(100px 100px at 0% 50%);
+            }
+        }
+
+        h1::after {
+            /* 别忘记修改color为透明 */
+            color: transparent;
+            background-image: linear-gradient(to left, #1a2a6c, #b21f1f, #fdbb2d);
+            background-clip: text;
+            /* 因为background-clip是预览阶段的css属性，要加上一个前缀版本 */
+            -webkit-background-clip: text;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<!-- @from https://juejin.cn/post/7082747233698840612-->
+<h1 data-spotlight="我是首页, 我想藏在罐头里">我是首页, 我想藏在罐头里</h1>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+    public static String _cols = "<%for(col in colsMap){%>${col.key}${colLP.last ? "" : ","}<%}%>";
+
+<%	for(attr in attrs){
+	if(!isEmpty(attr.comment)){%>
+	/**
+	 * ${attr.comment}
+	 */
+    <%}
+
+	if(attr.id && attr.auto){
+	%>
+	@AutoID
+	<%
+	}else if(attr.id){
+	%>
+	@AssignID
+    <%}%>
+	<% if (attrLP.first) { %>
+	@Id
+	@GeneratedValue(generator = "generator")
+	@GenericGenerator(name = "generator", strategy = "native")
+	<% } %>
+	<% if (attr.name != "isDeleted") { %>
+	@EruptField(
+		views = @View(title = "${!isEmpty(attr.comment)?extractField(attr.comment):attr.name}"),
+		edit = @Edit(title = "${!isEmpty(attr.comment)?extractField(attr.comment):attr.name}"
+				// , notNull = true
+				${ (attr.javaType == "Date") ? ", type = EditType.DATE, dateType = @DateType(type = DateType.Type.DATE)" : null}
+				${ attrLP.first ? null : ", search = @Search(vague = true)" }
+		)
+	)
+	<% } %>
+	private ${attr.javaType} ${attr.name};
+
+<%}%>

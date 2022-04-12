@@ -1,0 +1,22 @@
+INSERT INTO `e_upms_menu` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `code`, `icon`, `name`, `param`, `sort`, `status`, `type`, `value`, `parent_menu_id`)
+VALUES (NULL, 'erupt', '${currentDate}', 'erupt', '${currentDate}', '${codeList[0]}', NULL, '${comment}', NULL, NULL, '1', 'table', '${entityClass}', null);
+
+set @parentId = @@identity;
+
+INSERT INTO `e_upms_menu` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `code`, `icon`, `name`, `param`, `sort`, `status`, `type`, `value`, `parent_menu_id`)
+VALUES (NULL, NULL, '${currentDate}', NULL, NULL, '${codeList[1]}', NULL, '新增', NULL, '10', '1', 'button', '${entityClass}@ADD', @parentId);
+
+INSERT INTO `e_upms_menu` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `code`, `icon`, `name`, `param`, `sort`, `status`, `type`, `value`, `parent_menu_id`)
+VALUES (NULL, NULL, '${currentDate}', NULL, NULL, '${codeList[2]}', NULL, '修改', NULL, '20', '1', 'button', '${entityClass}@EDIT', @parentId);
+
+INSERT INTO `e_upms_menu` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `code`, `icon`, `name`, `param`, `sort`, `status`, `type`, `value`, `parent_menu_id`)
+VALUES (NULL, NULL, '${currentDate}', NULL, NULL, '${codeList[3]}', NULL, '删除', NULL, '30', '1', 'button', '${entityClass}@DELETE', @parentId);
+
+INSERT INTO `e_upms_menu` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `code`, `icon`, `name`, `param`, `sort`, `status`, `type`, `value`, `parent_menu_id`)
+VALUES (NULL, NULL, '${currentDate}', NULL, NULL, '${codeList[4]}', NULL, '导出', NULL, '40', '1', 'button', '${entityClass}@EXPORT', @parentId);
+
+INSERT INTO `e_upms_menu` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `code`, `icon`, `name`, `param`, `sort`, `status`, `type`, `value`, `parent_menu_id`)
+VALUES (NULL, NULL, '${currentDate}', NULL, NULL, '${codeList[5]}', NULL, '导入', NULL, '50', '1', 'button', '${entityClass}@IMPORTABLE', @parentId);
+
+INSERT INTO `e_upms_menu` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `code`, `icon`, `name`, `param`, `sort`, `status`, `type`, `value`, `parent_menu_id`)
+VALUES (NULL, NULL, '${currentDate}', NULL, NULL, '${codeList[6]}', NULL, '详情', NULL, '60', '1', 'button', '${entityClass}@VIEW_DETAIL', @parentId);

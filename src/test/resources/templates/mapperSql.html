@@ -1,0 +1,36 @@
+cols
+===
+```sql
+<%
+for(col in cols){
+var colName=col+(colLP.last?"":",");
+print(colName);
+}%>
+
+```
+
+
+page${entityClass}
+===
+```sql
+select
+-- @pageTag(){
+   #{use("cols")}
+-- @}
+from ${tableName}
+```
+
+
+jsonMap
+===
+```json
+{
+<%
+for(col in cols){
+var colName=col;
+var attr = @nc.getPropertyName(col);
+%>
+    "${attr}":"${colName}"${!colLP.last?","}
+<%}%>
+}
+```

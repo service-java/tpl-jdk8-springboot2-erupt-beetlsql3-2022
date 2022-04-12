@@ -1,0 +1,19 @@
+package ${package};
+<%for(impCls in imports){%>
+import ${impCls};
+<%}%>
+
+/*
+* ${comment}
+* @Date ${date(),"yyyy-MM-dd"}
+*/
+
+@Table(name="${has(catalog)?(catalog+".")}${table}")
+public class ${className} implements java.io.Serializable} {
+
+	<%for(attr in attrs){%>
+	public static final String ALIAS_${attr.colName} = "${attr.colName}";
+	<%}%>
+
+   <%include("pojoAttribute.html"){}%>
+}
