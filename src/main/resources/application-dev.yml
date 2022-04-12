@@ -4,13 +4,13 @@ spring:
     username: root
     password: 123456
   redis:
-    database: 2
+    database: 0
     timeout: 10000
     host: 127.0.0.1
     port: 6379
     password: 123456
   jpa:
-    generate-ddl: false
+    generate-ddl: true
 
 erupt:
   uploadPath: D:/erupt/pictures
