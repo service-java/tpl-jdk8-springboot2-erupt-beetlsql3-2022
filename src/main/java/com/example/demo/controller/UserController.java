@@ -36,7 +36,7 @@ public class UserController {
     // @EruptRecordOperate("登录可调用")
     @EruptRouter(verifyType = EruptRouter.VerifyType.LOGIN, authIndex = 0)
     public PageResult<User> pageUser(Integer pageNumber, Integer pageSize) {
-        return userMapper.pageUser(DefaultPageRequest.of(pageNumber, pageSize), User._cols);
+        return userMapper.pageUser(DefaultPageRequest.of(pageNumber, pageSize));
     }
 
 }
