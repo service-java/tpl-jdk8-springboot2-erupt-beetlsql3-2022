@@ -30,8 +30,8 @@ class GenCodeTests {
     String password;
 
     String tplPath = "/src/test/resources/templates/";
-        // String basePackageName = "com.example.demo";
-   String basePackageName = "com.beetlsqlcodegen.demo";
+    String basePackageName = "com.example.demo";
+//    String basePackageName = "com.beetlsqlcodegen.demo";
 
     @Autowired
     private UserMapper userMapper;
