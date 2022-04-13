@@ -34,5 +34,5 @@ listAllTables
 ```sql
 SELECT table_name 
 FROM INFORMATION_SCHEMA.TABLES
-WHERE table_schema = 'sku' 
+WHERE table_schema = 'demo-dev' 
 ```
