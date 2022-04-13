@@ -20,11 +20,13 @@ spring:
     password: 123456
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      max-lifetime: 300_000
-      connection-timeout: 30_000
-      maximum-pool-size: 10
-      minimum-idle: 5
-      idle-timeout: 180_000
+      max-lifetime: 600_000
+      connection-timeout: 3000_000
+      maximum-pool-size: 60
+      minimum-idle: 10
+      idle-timeout: 60_000
+      leak-detection-threshold: 5000
+      allow-pool-suspension: true
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     open-in-view: true
@@ -87,67 +89,3 @@ erupt:
     strictRoleMenuLegal: true
   job.enable: true
   security.recordOperateLog: true
-
-magic-api:
-  web: /magic/web
-  resource:
-    type: database
-    tableName: magic_api_file
-    readonly: false
-  prefix: /magic-api
-  auto-import-module: db
-  auto-import-package: java.lang.*,java.util.*
-  allow-override: false
-  sql-column-case: camel
-  # editor-config: classpath:./magic-editor.js
-  support-cross-domain: true
-  secret-key: 123456
-  push-path: /_magic-api-sync
-  show-sql: true
-  compile-cache-size: 500
-  persistence-response-body: true
-  date-pattern:
-    - yyyy-MM-dd
-    - yyyy-MM-dd HH:mm:ss
-    - yyyyMMddHHmmss
-    - yyyyMMdd
-  response: |-
-    {
-      code,
-      message: msg,
-      data
-    }
-  response-code:
-    success: 1
-    invalid: 0
-    exception: -1
-  banner: false
-  thread-pool-executor-size: 8
-  throw-exception: false
-  crud:
-    logic-delete-column: deleted
-    logic-delete-value: 1
-  cache:
-    capacity: 10000
-    ttl: -1
-    enable: true
-  page:
-    size: pageSize
-    page: pageNum
-    default-page: 1
-    default-size: 10
-  backup:
-    enable: true
-    max-history: -1
-    table-name: magic_api_backup
-  security:
-    username: admin
-    password: 123456
-#  swagger:
-#    version: 1.0
-#    description: MagicAPI 接口信息
-#    title: MagicAPI Swagger Docs
-#    name: MagicAPI 接口
-#    location: /v2/api-docs/magic-api/swagger2.json
-  debug:
-    timeout: 60

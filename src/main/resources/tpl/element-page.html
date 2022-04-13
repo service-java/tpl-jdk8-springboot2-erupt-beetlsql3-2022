@@ -50,7 +50,7 @@
         },
         async mounted() {
             const res = await pageUser({
-                pageSize: 10,
+                pageSize: 5,
                 pageNumber: 1
             })
             ELEMENT.Message.success(JSON.stringify(res.data))

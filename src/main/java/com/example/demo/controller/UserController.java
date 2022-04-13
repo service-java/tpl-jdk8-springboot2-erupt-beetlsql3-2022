@@ -3,6 +3,9 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.util.PageDtoUtil;
+import com.example.demo.util.ValidatorUtil;
+import com.example.demo.vo.PageQueryVo;
 import com.example.demo.vo.ResponseVo;
 
 import org.beetl.sql.core.page.DefaultPageRequest;
@@ -12,6 +15,7 @@ import org.beetl.sql.core.page.PageResult;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,8 +41,9 @@ public class UserController {
     @ResponseBody
     // @EruptRecordOperate("登录可调用")
     @EruptRouter(verifyType = EruptRouter.VerifyType.LOGIN, authIndex = 0)
-    public ResponseVo pageUser(Integer pageNumber, Integer pageSize) {
-        PageResult<User> page = userMapper.pageUser(DefaultPageRequest.of(pageNumber, pageSize));
+    public ResponseVo pageUser(PageQueryVo pageQueryVo) {
+        ValidatorUtil.validateEntity(pageQueryVo);
+        PageResult<User> page = userMapper.pageUser(PageDtoUtil.convert(pageQueryVo));
         return ResponseVo.ok(page);
     }
 
