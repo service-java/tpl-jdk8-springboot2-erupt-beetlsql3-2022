@@ -30,8 +30,8 @@ class GenCodeTests {
     String password;
 
     String tplPath = "/src/test/resources/templates/";
-        String basePackageName = "com.example.demo";
-//    String basePackageName = "com.beetlsqlcodegen.demo";
+        // String basePackageName = "com.example.demo";
+   String basePackageName = "com.beetlsqlcodegen.demo";
 
     @Autowired
     private UserMapper userMapper;
@@ -53,7 +53,7 @@ class GenCodeTests {
         if (tableNames.size() > 0) {
             tableNames.stream().forEach(tableName -> {
                 // 指定要生成代码的表名
-                if (StrUtil.startWith(tableName, "temp_")) {
+                if (StrUtil.startWith(tableName, "user")) {
                     // 生成代码与文档
                     GenCodeUtil.genCode(sqlManager, basePackageName, tableName, genOption);
                 }
