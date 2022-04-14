@@ -17,5 +17,5 @@ public interface UserMapper extends BaseMapper<User> {
 
     PageResult<User> pageUser(PageRequest pageRequest);
 
-    List<String> listAllTables();
+    List<String> listAllTables(String dbName);
 }
