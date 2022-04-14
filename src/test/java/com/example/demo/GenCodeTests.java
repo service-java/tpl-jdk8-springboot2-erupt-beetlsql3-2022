@@ -29,6 +29,7 @@ class GenCodeTests {
     @Value("${spring.datasource.password}")
     String password;
 
+    String dbName = "demo-dev";
     String tplPath = "/src/test/resources/templates/";
     String basePackageName = "com.example.demo";
 //    String basePackageName = "com.beetlsqlcodegen.demo";
@@ -41,7 +42,7 @@ class GenCodeTests {
         SQLManager sqlManager = GenCodeUtil.getDataSource(driver, url, userName, password);
         GenCodeUtil.initGroupTemplate(tplPath);
 
-        List<String> tableNames = userMapper.listAllTables();
+        List<String> tableNames = userMapper.listAllTables(dbName);
 
         // 指定要生成的内容
         GenOption genOption = new GenOption();
