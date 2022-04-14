@@ -20,7 +20,7 @@ spring:
     password: 123456
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      max-lifetime: 600_000
+      max-lifetime: 290_000
       connection-timeout: 3000_000
       maximum-pool-size: 60
       minimum-idle: 10
