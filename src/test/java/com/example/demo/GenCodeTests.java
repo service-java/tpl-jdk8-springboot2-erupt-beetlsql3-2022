@@ -54,7 +54,7 @@ class GenCodeTests {
         if (tableNames.size() > 0) {
             tableNames.stream().forEach(tableName -> {
                 // 指定要生成代码的表名
-                if (StrUtil.startWith(tableName, "user")) {
+                if (StrUtil.startWith(tableName, "temp")) {
                     // 生成代码与文档
                     GenCodeUtil.genCode(sqlManager, basePackageName, tableName, genOption);
                 }
