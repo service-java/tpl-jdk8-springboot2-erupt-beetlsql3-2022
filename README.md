@@ -29,6 +29,12 @@ java  -jar /opt/demo-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
 
 # 代码生成
 
+- vscode插件- EasyCode
+
+![](https://luo0412.oss-cn-hangzhou.aliyuncs.com/1654829321091-te3wQpJSWTJb.png)
+
+- 本地代码
+
 ```java
 // src\test\java\com\example\demo\GenCodeTests.java
 // 1) 指定要生成的表和位置
