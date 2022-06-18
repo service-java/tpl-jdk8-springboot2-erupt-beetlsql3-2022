@@ -12,8 +12,11 @@
 - BeetlSQL3
   - https://beetlsql-doc.vercel.app/start/quick
 
-- easyexcel
-  - https://www.yuque.com/easyexcel/doc/easyexcel
+![](https://luo0412.oss-cn-hangzhou.aliyuncs.com/1655547092309-miaSYTaW7P7w-image.png)
+
+- EasyCode
+
+![](https://luo0412.oss-cn-hangzhou.aliyuncs.com/1654829321091-te3wQpJSWTJb.png)
 
 ---
 
@@ -27,13 +30,9 @@ java  -jar /opt/demo-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
 
 ---
 
-# 代码生成
+# 代码生成 @bak
 
-- vscode插件- EasyCode
-
-![](https://luo0412.oss-cn-hangzhou.aliyuncs.com/1654829321091-te3wQpJSWTJb.png)
-
-- 本地代码
+- 本地代码生成
 
 ```java
 // src\test\java\com\example\demo\GenCodeTests.java
